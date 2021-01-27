@@ -81,6 +81,37 @@
     const prev = document.getElementById("prev");
     let imgSrc = document.getElementById("imgSrc");
     let index = 0;
+    const next = document.getElementById("next");
+    let roundLi = document.querySelectorAll("#round li");
+    // 定时播放
+    let timer = null;
+    function start() {
+      timer = setInterval(function () {
+        index++;
+        if (index == imgArr.length) {
+          index = 0;
+        }
+        imgSrc.src = imgArr[index];
+        roundColor();
+      }, 1000);
+    }
+    start();
+    stop(prev);
+    leaveStart(prev);
+    stop(next);
+    leaveStart(next);
+    function stop(obj) {
+      obj.onmouseenter = () => {
+        clearInterval(timer);
+      }
+    }
+    function leaveStart(obj) {
+      obj.onmouseleave = () => {
+        start();
+      }
+    }
+
+    // 上一个图片
     prev.onclick = () => {
       index--;
       if (index < 0) {
@@ -89,8 +120,7 @@
       imgSrc.src = imgArr[index];
       roundColor()
     }
-
-    const next = document.getElementById("next");
+    // 下一个图片
     next.onclick = () => {
       index++;
       if (index == imgArr.length) {
@@ -99,8 +129,7 @@
       imgSrc.src = imgArr[index];
       roundColor()
     }
-
-    let roundLi = document.querySelectorAll("#round li");
+    // 点击圆点换图
     for (let i = 0; i < roundLi.length; i++) {
       roundLi[i].num = i;
       roundLi[i].onclick = function () {
@@ -108,7 +137,10 @@
         imgSrc.src = imgArr[index];
         roundColor();
       }
+      stop(roundLi[i]);
+      leaveStart(roundLi[i]);
     }
+    // 遍历圆点改变颜色
     roundColor();
     function roundColor() {
       for (let i = 0; i < roundLi.length; i++) {
