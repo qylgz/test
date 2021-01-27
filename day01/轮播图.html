@@ -13,7 +13,7 @@
 
     #box {
       position: relative;
-      margin: 0 auto;
+      margin: 100px auto;
       width: 500px;
       height: 333px;
     }
@@ -37,9 +37,9 @@
 
     #round {
       position: relative;
-      left: calc(50% - 57px);
+      left: calc(50% - 62px);
       bottom: 30px;
-      width: 115px;
+      width: 125px;
       height: 10px;
     }
 
@@ -50,7 +50,15 @@
       width: 15px;
       height: 15px;
       border-radius: 50%;
+      border: 1px solid black;
+    }
+
+    blakRound {
       background-color: black;
+    }
+
+    whiteRound {
+      background-color: white;
     }
   </style>
 </head>
@@ -68,6 +76,50 @@
       <li></li>
     </ul>
   </div>
+  <script>
+    const imgArr = ["img/1.jpg", "img/2.jpg", "img/3.jpg", "img/4.jpg", "img/5.jpg"];
+    const prev = document.getElementById("prev");
+    let imgSrc = document.getElementById("imgSrc");
+    let index = 0;
+    prev.onclick = () => {
+      index--;
+      if (index < 0) {
+        index = imgArr.length - 1;
+      }
+      imgSrc.src = imgArr[index];
+      roundColor()
+    }
+
+    const next = document.getElementById("next");
+    next.onclick = () => {
+      index++;
+      if (index == imgArr.length) {
+        index = 0;
+      }
+      imgSrc.src = imgArr[index];
+      roundColor()
+    }
+
+    let roundLi = document.querySelectorAll("#round li");
+    for (let i = 0; i < roundLi.length; i++) {
+      roundLi[i].num = i;
+      roundLi[i].onclick = function () {
+        index = this.num;
+        imgSrc.src = imgArr[index];
+        roundColor();
+      }
+    }
+    roundColor();
+    function roundColor() {
+      for (let i = 0; i < roundLi.length; i++) {
+        if (roundLi[i].num == index) {
+          roundLi[index].style.backgroundColor = "black";
+        } else {
+          roundLi[i].style.backgroundColor = "";
+        }
+      }
+    }
+  </script>
 </body>
 
 </html>
