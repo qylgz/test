@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
     #box {
       position: relative;
       margin: 0 auto;
@@ -29,6 +34,24 @@
       right: 0;
       top: calc(50% - 20px);
     }
+
+    #round {
+      position: relative;
+      left: calc(50% - 57px);
+      bottom: 30px;
+      width: 115px;
+      height: 10px;
+    }
+
+    #round li {
+      list-style: none;
+      float: left;
+      margin: 4px;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: black;
+    }
   </style>
 </head>
 
@@ -37,6 +60,13 @@
     <button id="prev">&lt;</button>
     <img src="img/1.jpg" alt="" id="imgSrc">
     <button id="next">&gt;</button>
+    <ul id="round">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
   </div>
 </body>
 
