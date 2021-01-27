@@ -83,8 +83,8 @@
     let index = 0;
     const next = document.getElementById("next");
     let roundLi = document.querySelectorAll("#round li");
-    // 定时播放
     let timer = null;
+    // 开启定时器
     function start() {
       timer = setInterval(function () {
         index++;
@@ -95,11 +95,13 @@
         roundColor();
       }, 1500);
     }
+    // 按钮开启关闭定时器
     start();
     stop(prev);
     leaveStart(prev);
     stop(next);
     leaveStart(next);
+    // 关闭定时器
     function stop(obj) {
       obj.onmouseenter = () => {
         clearInterval(timer);
