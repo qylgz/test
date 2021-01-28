@@ -31,6 +31,7 @@
 
     .prev {
       left: 0;
+      z-index: 1;
     }
 
     .next {
@@ -47,6 +48,7 @@
     .boxUl li {
       width: 500px;
       height: 333px;
+      transition: 1s linear;
     }
 
     .round {
@@ -77,6 +79,7 @@
       <li><img src="img/3.jpg" alt="" class="liImg"></li>
       <li><img src="img/4.jpg" alt="" class="liImg"></li>
       <li><img src="img/5.jpg" alt="" class="liImg"></li>
+      <li><img src="img/1.jpg" alt="" class="liImg"></li>
     </ul>
     <button class="next" id="next">&gt;</button>
     <ul class="round" id="round">
@@ -93,16 +96,26 @@
     const next = document.getElementById("next");
     const liImgs = document.getElementsByClassName("liImg");
     const boxLi = document.querySelectorAll("#boxUl li");
+    prev.onclick = () => {
+      index--;
+      if (index < 0) {
+        index = boxLi.length - 1;
+      }
+      imgMove(index);
+    }
     next.onclick = () => {
       index++;
+      if (index == boxLi.length - 1) {
+        index = 0;
+      }
       imgMove(index);
     }
     function imgMove(index) {
-      let distance = index * 500;
+      let distance = -(index * 500);
       for (let i = 0; i < boxLi.length; i++) {
-        boxLi[i].style.transform = "translate(" + distance + "px,0);"
+        // boxLi[i].style.transform = "translate(" + distance + "px,0);"
+        boxLi[i].style.transform = `translate(${distance}px,0)`;
         // console.log(boxLi[i].style.transform = `translate(${distance}px,0);`);
-        console.log(boxLi[i].style.transform = "translate(" + distance + "px,0);");
       }
     }
   </script>
