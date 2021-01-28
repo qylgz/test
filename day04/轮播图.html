@@ -11,9 +11,13 @@
       padding: 0;
     }
 
+    li {
+      list-style: none;
+    }
+
     .box {
       position: relative;
-      margin: 0 auto;
+      margin: 100px auto;
       width: 540px;
       height: 37. 3px;
     }
@@ -26,11 +30,11 @@
     }
 
     .prev {
-      left: 20px;
+      left: 0;
     }
 
     .next {
-      right: -20px;
+      right: 40px;
     }
 
     .boxUl {
@@ -40,18 +44,33 @@
       height: 333px;
     }
 
-    li {
-      border: 20px solid skyblue;
+    .boxUl li {
       width: 500px;
       height: 333px;
-      list-style: none;
+    }
+
+    .round {
+      position: absolute;
+      left: 187.5px;
+      bottom: 20px;
+      width: 125px;
+      height: 15px;
+    }
+
+    .round li {
+      float: left;
+      margin: 0 4px;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      border: 1px solid #000000;
     }
   </style>
 </head>
 
 <body>
   <div class="box" id="box">
-    <button class="prev">&lt;</button>
+    <button class="prev" id="prev">&lt;</button>
     <ul class="boxUl" id="boxUl">
       <li><img src="img/1.jpg" alt="" class="liImg"></li>
       <li><img src="img/2.jpg" alt="" class="liImg"></li>
@@ -59,8 +78,25 @@
       <li><img src="img/4.jpg" alt="" class="liImg"></li>
       <li><img src="img/5.jpg" alt="" class="liImg"></li>
     </ul>
-    <button class="next">&gt;</button>
+    <button class="next" id="next">&gt;</button>
+    <ul class="round" id="round">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
   </div>
+  <script>
+    let index = 0;
+    const prev = document.getElementById("prev");
+    const next = document.getElementById("next");
+    const liImgs = document.getElementsByClassName("liImg");
+    prev.onclick = () => {
+      index++;
+    }
+    function imgMove(index) { }
+  </script>
 </body>
 
 </html>
