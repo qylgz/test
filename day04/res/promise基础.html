@@ -8,7 +8,26 @@
 </head>
 
 <body>
-  <script></script>
+  <script>
+    const p = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const time = new Date();
+        if (time % 2 == 0) {
+          resolve(`成功的数据${time}`);
+        } else {
+          reject(`失败的数据${time}`);
+        }
+      }, 1500);
+    });
+    p.then(
+      value => {
+        console.log(`成功了${value}`);
+      },
+      reason => {
+        console.log(`失败了${reason}`);
+      }
+    )
+  </script>
 </body>
 
 </html>
