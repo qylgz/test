@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const p = new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        let data = "数据库中的用户数据";
+        console.log(1);
+        // resolve(data);
+        console.log(2);
+        reject(data);
+        console.log(3);
+      }, 2000)
+    });
+    p.then(function (value) {
+      setTimeout(function () {
+        console.log("value");
+      }, 3000)
+    }, function (reason) {
+      setTimeout(function () {
+        console.error("reason");
+      }, 3000)
+    })
+  </script>
+</body>
+
+</html>
