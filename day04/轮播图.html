@@ -92,10 +92,19 @@
     const prev = document.getElementById("prev");
     const next = document.getElementById("next");
     const liImgs = document.getElementsByClassName("liImg");
-    prev.onclick = () => {
+    const boxLi = document.querySelectorAll("#boxUl li");
+    next.onclick = () => {
       index++;
+      imgMove(index);
     }
-    function imgMove(index) { }
+    function imgMove(index) {
+      let distance = index * 500;
+      for (let i = 0; i < boxLi.length; i++) {
+        boxLi[i].style.transform = "translate(" + distance + "px,0);"
+        // console.log(boxLi[i].style.transform = `translate(${distance}px,0);`);
+        console.log(boxLi[i].style.transform = "translate(" + distance + "px,0);");
+      }
+    }
   </script>
 </body>
 
