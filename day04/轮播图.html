@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      position: relative;
+      margin: 0 auto;
+      width: 540px;
+      height: 37. 3px;
+    }
+
+    .box button {
+      position: absolute;
+      top: calc(50% - 20px);
+      width: 40px;
+      height: 40px;
+    }
+
+    .prev {
+      left: 20px;
+    }
+
+    .next {
+      right: -20px;
+    }
+
+    .boxUl {
+      display: flex;
+      flex-direction: row;
+      width: 500px;
+      height: 333px;
+    }
+
+    li {
+      border: 20px solid skyblue;
+      width: 500px;
+      height: 333px;
+      list-style: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box" id="box">
+    <button class="prev">&lt;</button>
+    <ul class="boxUl" id="boxUl">
+      <li><img src="img/1.jpg" alt="" class="liImg"></li>
+      <li><img src="img/2.jpg" alt="" class="liImg"></li>
+      <li><img src="img/3.jpg" alt="" class="liImg"></li>
+      <li><img src="img/4.jpg" alt="" class="liImg"></li>
+      <li><img src="img/5.jpg" alt="" class="liImg"></li>
+    </ul>
+    <button class="next">&gt;</button>
+  </div>
+</body>
+
+</html>
