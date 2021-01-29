@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    async function fun() {
+      return Promise.reject(1)
+    }
+    const result = fun()
+    result.then(
+      value => {
+        console.log(`成功${value}`);
+      },
+      reason => {
+        console.log(`失败${reason}`);
+      }
+    )
+  </script>
+</body>
+
+</html>
