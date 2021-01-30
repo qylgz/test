@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="box">
+    <ul id="app">
+      <input type="text" v-model:value="inputValue" @keyup.enter="add">
+      <li v-for="(item,index) in list">
+        <p>{{index+1}}.{{item}} <button>×</button></p>
+      </li>
+    </ul>
+
+  </div>
+  <script src="js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        list: ["吃饭", "睡觉", "打豆豆"],
+        inputValue: ""
+      },
+      methods: {
+        add: function () {
+          this.list.push(this.inputValue);
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
