@@ -7,29 +7,30 @@
   <title>Document</title>
   <style>
     .active {
-      border: 1px solid red;
+      border: 12px solid red;
     }
   </style>
 </head>
 
 <body>
   <div id="app">
-    <button @click="changeActive">点</button>
-    <p v-bind:class="{active:isActive}">Hello</p>
+    <!-- <button @click="changeActive">点</button> -->
+    <div v-bind:class="{ active : isActive}" @click="changeActive">Hello</div>
+    <div v-bind:class="isActive ? 'active':''" @click="changeActive">Hello</div>
     <p>Ha</p>
   </div>
-  <script src=" js/vue.js">
+  <script src="js/vue.js">
   </script>
   <script>
     const app = new Vue({
       el: "#app",
       data: {
-        isActive: false
+        isActive: true
       },
       methods: {
         changeActive: function () {
-          this.changeActive = !this.changeActive
-          console.log(this.changeActive);
+          this.isActive = !this.isActive
+          // console.log(this.isActive);
         }
       }
     })

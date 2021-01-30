@@ -11,6 +11,7 @@
   <div id="app">
     <button v-on:click="doIt">点击弹窗</button>
     <button v-on:click="changeFood">点击弹窗</button>
+    <input type="text" name="" id="" @keyup.a="sayHi">
     <p>{{food}}</p>
   </div>
   <script src="./js/vue.js"></script>
@@ -27,6 +28,9 @@
         changeFood: function () {
           console.log(this.food);
           this.food += "很不错"
+        },
+        sayHi: function () {
+          alert("Hi")
         }
       }
     })
