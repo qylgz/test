@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <button v-on:click="doIt">点击弹窗</button>
+    <button v-on:click="changeFood">点击弹窗</button>
+    <p>{{food}}</p>
+  </div>
+  <script src="./js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        food: "番茄炒鸡蛋"
+      },
+      methods: {
+        doIt: function () {
+          alert("做开发")
+        },
+        changeFood: function () {
+          console.log(this.food);
+          this.food += "很不错"
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

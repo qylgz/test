@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="reduce">-</button>
+    <p>{{num}}</p>
+    <button @click="add">+</button>
+  </div>
+  <script src="js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        num: 0
+      },
+      methods: {
+        add: function () {
+          if (this.num < 10) {
+            this.num++
+          } else {
+            alert("不能再大了")
+          }
+        },
+        reduce: function () {
+          if (this.num > 0) {
+            this.num--
+          } else {
+            alert("这也忒小了")
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

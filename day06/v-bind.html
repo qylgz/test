@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active {
+      border: 1px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="changeActive">点</button>
+    <p v-bind:class="{active:isActive}">Hello</p>
+    <p>Ha</p>
+  </div>
+  <script src=" js/vue.js">
+  </script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        isActive: false
+      },
+      methods: {
+        changeActive: function () {
+          this.changeActive = !this.changeActive
+          console.log(this.changeActive);
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
