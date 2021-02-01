@@ -5,6 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    #btn button {
+      display: none;
+      float: left;
+    }
+
+    #btn:hover button {
+      display: block;
+    }
+  </style>
 </head>
 
 <body>
@@ -12,8 +22,9 @@
     <ul id="app">
       <input type="text" v-model:value="inputValue" @keyup.enter="add">
       <li v-for="(item,index) in list">
-        <p>{{index+1}}.{{item}} <button>×</button></p>
+        <p id="btn">{{index+1}}.{{item}} <button @click="remove(index)">×</button></p>
       </li>
+      <p v-show="list.length!=0">共 {{list.length}} 条消息 <button @click="clear">清空</button></p>
     </ul>
 
   </div>
@@ -27,7 +38,15 @@
       },
       methods: {
         add: function () {
+          console.log(this.list.length);
           this.list.push(this.inputValue);
+        },
+        remove: function (index) {
+          this.list.splice(index, 1)
+        },
+        clear: function () {
+          // const num = this.list.length;
+          this.list.splice(0, this.list.length)
         }
       }
     })
