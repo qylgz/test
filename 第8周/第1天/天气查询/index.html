@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="btnGet">get请求</button>
+  <button id="btnPost">post请求</button>
+  <p id="pText" v-f></p>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    var pText = document.getElementById("pText");
+    document.getElementById("btnGet").onclick = function () {
+      axios.get("https://autumnfish.cn/api/joke/list?num=5").then(function (response) {
+        pText.innerHTML = response.data.jokes;
+        console.log(response);
+      })
+    }
+  </script>
+</body>
+
+</html>
