@@ -15,9 +15,19 @@
   <script>
     var pText = document.getElementById("pText");
     document.getElementById("btnGet").onclick = function () {
-      axios.get("https://autumnfish.cn/api/joke/list?num=5").then(function (response) {
+      axios.get("https://autumnfish.cn/api/hero/simple?name=提莫").then(function (response) {
+        pText.innerHTML = response.data;
+        console.log(response);
+      }), (function (err) {
+        console.log(err);
+      })
+    }
+    document.getElementById("btnPost").onclick = function () {
+      axios.post("https://autumnfish.cn/api/user/register", { username: "jack" }).then(function (response) {
         pText.innerHTML = response.data.jokes;
         console.log(response);
+      }), (function (err) {
+        console.log(err);
       })
     }
   </script>

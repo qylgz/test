@@ -8,18 +8,41 @@
 </head>
 
 <body>
-  <button id="btn">请求</button>
+  <button id="btn" onclick="loadXMLDoc()">请求</button>
+  <p id="myDiv"></p>
   <script>
-    btn.onclick = function () {
-      const xhr = new XMLHttpRequest();
-      xhr.open("get", "https://autumnfish.cn/api/joke", true);
-      xhr.send();
-      xhr.onreadystatechange = function () {
-        if (xhr.onreadyState == 4 && xhr.status == 200) {
-          console.log(xhr.responseTest);
+    function loadXMLDoc() {
+      var xmlhttp;
+      if (window.XMLHttpRequest) {
+        //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+        xmlhttp = new XMLHttpRequest();
+      }
+      else {
+        // IE6, IE5 浏览器执行代码
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+          document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+          console.log(xmlhttp);
+          console.log(xmlhttp.response);
         }
       }
+      xmlhttp.open("GET", "https://autumnfish.cn/api/joke", true);
+      xmlhttp.send();
     }
+    // btn.onclick = function () {
+    //   const xhr = new XMLHttpRequest();
+    //   xhr.open("get", "https://autumnfish.cn/api/joke", true);
+    //   xhr.send();
+    //   xhr.onreadystatechange = function () {
+    //     if (xhr.onreadyState == 4 && xhr.status == 200) {
+    //       console.log(xhr.responseTest);
+    //     } else { }
+    //     console.log(2);
+    //   }
+    //   console.log(xhr.responseTest);
+    // }
   </script>
 </body>
 
