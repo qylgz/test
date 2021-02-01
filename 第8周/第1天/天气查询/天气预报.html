@@ -5,12 +5,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    #app {
+      width: 1000px;
+      height: 500px;
+      margin: 100px auto;
+      text-align: center;
+    }
+
+    #app #cityss li {
+      float: left;
+      list-style: none;
+    }
+
+    #app #weather {
+      float: left;
+      list-style: none;
+    }
+  </style>
 </head>
 
 <body>
   <div id="app">
-    <input type="button" value="获取笑话" @click="getJokes">
-    <p>{{ joke }}</p>
+    <h2>天知道</h2>
+    <input type="text" @key.enter="searchWeather" v-model="city"><button @click="searchWeather">搜索</button>
+    <ul id="cityss">
+      <li>北京</li>
+      <li>北京</li>
+      <li>北京</li>
+      <li>北京</li>
+    </ul>
+    <p></p>
+    <ul id="weather" v-for="item in weather">
+      <li>{{item.date}}</li>
+      <li>{{item.fengli}}</li>
+      <li>{{item.fengxiang}}</li>
+      <li>{{item.high}}</li>
+      <li>{{item.low}}</li>
+      <li>{{item.type}}</li>
+    </ul>
   </div>
   <script src="js/vue.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -18,15 +51,19 @@
     const app = new Vue({
       el: "#app",
       data: {
-        joke: "笑话"
+        city: "",
+        weather: []
       },
       methods: {
-        getJokes: function () {
-          axios.get("https://autumnfish.cn/api/joke").then(function (response) {
-            console.log(response.data);
-          }, function (error) {
-            console.log(error);
-          })
+        searchWeather: function () {
+          axios.get("http://wthrcdn.etouch.cn/weather_mini?city=" + this.city)
+            .then(response => {
+              this.weather = response.data.data.forecast
+              console.log(response);
+            })
+            .catch(error => {
+              console.log(error);
+            })
         }
       },
     })
