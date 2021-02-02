@@ -8,7 +8,24 @@
 </head>
 
 <body>
-
+  <script>
+    const obj = new Object({
+      el: "#app",
+      data: {
+        name: "张三",
+        age: 18,
+        gender: "男"
+      },
+      methods: {
+        add: function () {
+          console.log("add")
+          console.log(this)
+        }
+      },
+    })
+    // console.log(obj.data.name);
+    obj.methods.add()
+  </script>
 </body>
 
 </html>
