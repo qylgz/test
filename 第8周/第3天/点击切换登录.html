@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <span v-if="type === 'username'">
+      <label for="username">用户名</label>
+      <input type="text" id="username">
+    </span>
+    <span v-else-if="type === 'email'">
+      <label for="email">电子邮件</label>
+      <input type="email" id="email">
+    </span>
+    <button @click="changeToggle">改变</button>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        type: 'username'
+      },
+      methods: {
+        changeToggle() {
+          this.type = this.type === 'username' ? 'email' : 'username'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
