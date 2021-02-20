@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <cpn :c-info="message"></cpn>
+  </div>
+  <template id="cpnC">
+    <div>
+      <h2>{{cInfo}}</h2>
+    </div>
+  </template>
+  <script src="../js/vue.js"></script>
+  <script>
+    const cpn = {
+      template: "#cpnC",
+      props: {
+        cInfo: {
+          type: String,
+          default: ''
+        }
+      }
+    }
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: "Hello"
+      },
+      components: {
+        cpn
+      }
+    })
+  </script>
+</body>
+
+</html>
