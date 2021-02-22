@@ -14,8 +14,9 @@
   </div>
   <template id="cpn">
     <div>
-      <h2>hahahha</h2>
-      <p>{{message}}</p>
+      <ul>
+        <li v-for="(item, index) in movies" :key="index">{{item}}</li>
+      </ul>
     </div>
   </template>
   <script src="../js/vue.js"></script>
@@ -32,7 +33,8 @@
           data() {
             return {
               isShow: false,
-              message: '哈哈哈'
+              message: '哈哈哈',
+              movies: ['海王', '海贼王', '海尔兄弟', '海上传奇']
             }
           },
         }
