@@ -1,23 +1,31 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <p>{{ count }}</p>
+    <button @click="increament">+</button>
+    <button @click="decreament">-</button>
+    <router-view />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
-}
+  name: "App",
+  components: {},
+  computed: {
+    count: function () {
+      return this.$store.state.count;
+    },
+  },
+  methods: {
+    increament() {
+      this.$store.commit("increament");
+    },
+    decreament() {
+      this.$store.commit("decreament");
+    },
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
