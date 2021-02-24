@@ -1,35 +1,7 @@
 <template>
-  <div id="app">
-    <div id="tab-tar">
-      <tab-bar-item>
-        <img slot="item-icon" src="../../assets/img/tabbar/home.svg" alt="" />
-        <div slot="item-text">首页</div>
-      </tab-bar-item>
-      <tab-bar-item>
-        <img
-          slot="item-icon"
-          src="../../assets/img/tabbar/category.svg"
-          alt=""
-        />
-        <div slot="item-text">分类</div>
-      </tab-bar-item>
-      <tab-bar-item>
-        <img
-          slot="item-icon"
-          src="../../assets/img/tabbar/shopcart.svg"
-          alt=""
-        />
-        <div slot="item-text">购物车</div>
-      </tab-bar-item>
-      <tab-bar-item>
-        <img
-          slot="item-icon"
-          src="../../assets/img/tabbar/profile.svg"
-          alt=""
-        />
-        <div slot="item-text">我的</div>
-      </tab-bar-item>
-      <!-- <div class="tab-tar-item">
+  <div id="tab-tar">
+    <slot></slot>
+    <!-- <div class="tab-tar-item">
         <img src="../../assets/img/tabbar/home.svg" alt="" />
         <div>首页</div>
       </div>
@@ -45,7 +17,6 @@
         <img src="../../assets/img/tabbar/home.svg" alt="" />
         <div>我的</div>
       </div> -->
-    </div>
   </div>
 </template>
 <script>
