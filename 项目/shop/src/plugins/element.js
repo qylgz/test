@@ -8,7 +8,9 @@ import locale from 'element-plus/lib/locale'
 import {
   ElButton, ElForm, ElFormItem, ElInput, ElMessage,
   ElContainer, ElHeader, ElAside, ElMain, ElMenu,
-  ElSubmenu, ElMenuItemGroup, ElMenuItem
+  ElSubmenu, ElMenuItemGroup, ElMenuItem, ElCard,
+  ElBreadcrumb, ElBreadcrumbItem, ElTable, ElTableColumn,
+  ElSwitch, ElTooltip,
 } from 'element-plus'
 
 
@@ -26,5 +28,12 @@ export default (app) => {
   app.use(ElSubmenu)
   app.use(ElMenuItemGroup)
   app.use(ElMenuItem)
+  app.use(ElCard)
+  app.use(ElBreadcrumb)
+  app.use(ElBreadcrumbItem)
+  app.use(ElTable)
+  app.use(ElTableColumn)
+  app.use(ElSwitch)
+  app.use(ElTooltip)
   app.config.globalProperties.$message = ElMessage
 }

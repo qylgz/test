@@ -4,7 +4,9 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import installElementPlus from './plugins/element'
+// import installElementPlus from './plugins/element'
+import ElementPlus from 'element-plus';
+import 'element-plus/lib/theme-chalk/index.css';
 import axios from 'axios'
 // import 'element-plus/lib/theme-chalk/index.css';
 
@@ -25,6 +27,7 @@ axios.interceptors.request.use(config => {
 
 const app = createApp(App)
 app.config.globalProperties.$http = axios
+app.use(ElementPlus)
 
-installElementPlus(app)
+// installElementPlus(app)
 app.use(store).use(router).mount('#app')
