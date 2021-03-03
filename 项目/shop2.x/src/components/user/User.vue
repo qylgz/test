@@ -15,7 +15,7 @@
         >
       </div>
       <el-table :data="userList" style="width: 100%" border stripe>
-        <el-table-column type="index" label="#" width="50"> </el-table-column>
+        <el-table-column type="index" label="#" width="60"> </el-table-column>
         <el-table-column prop="username" label="姓名" width="180">
         </el-table-column>
         <el-table-column prop="email" label="邮箱" width="180">
@@ -34,7 +34,28 @@
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column prop="address" label="操作"> </el-table-column>
+        <el-table-column
+          prop="address"
+          label="操作"
+          width="180"
+          class="roleAssignmentsBox"
+        >
+          <el-button type="primary" icon="el-icon-edit" circle></el-button>
+          <el-button type="danger" icon="el-icon-delete" circle></el-button>
+          <el-tooltip
+            class="item"
+            effect="dark"
+            content="角色分配"
+            placement="top"
+          >
+            <el-button
+              class="roleAssignments"
+              type="warning"
+              icon="el-icon-setting"
+              circle
+            ></el-button>
+          </el-tooltip>
+        </el-table-column>
       </el-table>
     </el-card>
   </div>
@@ -81,6 +102,14 @@ export default {
       }
       .addUser {
         margin-left: 10px;
+      }
+    }
+    .el-table {
+      .roleAssignmentsBox {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
       }
     }
   }
